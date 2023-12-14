@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.7.0",
+    "antd": "^5.12.2",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.2",
     "cookie-parser": "~1.4.4",
@@ -17,7 +18,8 @@
     "dotenv": "^16.3.1",
     "express": "~4.16.1",
     "jsonwebtoken": "^9.0.2",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "react-router-dom": "^6.21.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",
