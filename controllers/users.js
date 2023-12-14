@@ -46,15 +46,22 @@ const register = async (req, res) => {
         .json({ message: "Пожалуйста, заполните обязательные поля." });
     }
 
-    const registeredUser = await prisma.user.findFirst({
-      where: {
-        email,
-        nickname,
-      },
+    const registeredEmail = await prisma.user.findFirst({
+      where: { email },
     });
-    if (registeredUser) {
+    if (registeredEmail) {
       return res.status(400).json({
-        message: "Пользователь с таким email или nickname уже существует.",
+        message: "Пользователь с таким email уже существует.",
+      });
+    }
+
+    const registeredNickname = await prisma.user.findFirst({
+      where: { nickname },
+    });
+
+    if (registeredNickname) {
+      return res.status(400).json({
+        message: "Пользователь с таким nickname уже существует.",
       });
     }
 
