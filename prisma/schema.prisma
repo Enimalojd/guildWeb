@@ -23,6 +23,7 @@ model User {
 model Note {
   id       String  @id @default(uuid())
   content  String
+  created  DateTime @default(now())
   viewed   Boolean @default(false)
   author   User  @relation("AuthorNotes", fields: [authorId], references: [id])
   authorId String
