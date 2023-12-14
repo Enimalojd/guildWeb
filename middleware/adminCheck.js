@@ -1,6 +1,7 @@
-const { prisma } = require("../prisma/prisma-client");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
-const adminCheck = (req, res, next) => {
+const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {
@@ -9,5 +10,5 @@ const adminCheck = (req, res, next) => {
 };
 
 module.exports = {
-  adminCheck,
+  isAdmin,
 };
